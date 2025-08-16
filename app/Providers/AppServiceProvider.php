@@ -19,6 +19,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->router->group([
+            'middleware' => 'api',
+            'prefix' => 'api',
+        ], function () {
+            require base_path('routes/api.php');
+        });
+
+        $this->app->router->group([
+            'middleware' => 'web',
+        ], function () {
+            require base_path('routes/web.php');
+        });
     }
 }
