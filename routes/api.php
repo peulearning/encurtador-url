@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\RedirectController;
 
 
 // =================== ROTA DE POST ===========================
@@ -16,6 +17,8 @@ Route::post('/login',[LoginController::class, 'login']);
 
 // =================== ROTA DE GET ===========================
 
+
+Route::get('/s/{slug}', [RedirectController::class, 'show']);
 
 
 // =================== ROTA DE UPDATE ===========================
